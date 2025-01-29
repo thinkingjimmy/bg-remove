@@ -6,6 +6,8 @@ import { ReactCompareSlider, ReactCompareSliderImage } from 'react-compare-slide
 import { CircleAlert } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Faq } from "./components/Faq";
+import { useTranslation } from 'react-i18next';
+import './i18n';
 
 interface AppError {
   message: string;
@@ -35,6 +37,7 @@ const isMobileSafari = () => {
 };
 
 export default function App() {
+  const { t, i18n } = useTranslation();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<AppError | null>(null);
   const [isWebGPU, setIsWebGPU] = useState(false);
@@ -166,7 +169,9 @@ export default function App() {
     },
   });
 
-  // Remove the full screen error and loading states
+  const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    i18n.changeLanguage(event.target.value);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50" onPaste={handlePaste}>
@@ -174,12 +179,21 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <h1 className="text-2xl font-bold text-gray-800">
-              BGNix - 100% Free & Privacy Preserved
+              {t('title')}
             </h1>
+            <select
+              value={i18n.language}
+              onChange={handleLanguageChange}
+              className="bg-white border border-gray-300 rounded-md px-3 py-1 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            >
+              <option value="en">🇺🇸 English</option>
+              <option value="zh">🇨🇳 中文</option>
+              <option value="ja">🇯🇵 日本語</option>
+            </select>
           </div>
           {isIOS && (
             <p className="text-sm text-gray-500 mt-2">
-              Using optimized iOS background removal
+              {t('subtitle')}
             </p>
           )}
         </div>
@@ -204,10 +218,10 @@ export default function App() {
                 />
               </div>
               <p className="text-lg text-gray-600 mb-4">
-                The free, privacy-first AI tool that removes backgrounds instantly – no subscriptions, no uploads to any server. 100% Local Processing.
+                {t('description')}
               </p>
               <p className="text-gray-500">
-                Perfect for professional photos, product images, and more.
+                {t('subDescription')}
               </p>
             </div>
           )}
@@ -216,7 +230,7 @@ export default function App() {
             <div className="mb-4">
               {!isIOS && (
                 <div className="flex items-center gap-4">
-                  <span className="text-gray-600">Model:</span>
+                  <span className="text-gray-600">{t('model')}</span>
                   <select
                     value={currentModel}
                     onChange={handleModelChange}
@@ -246,7 +260,7 @@ export default function App() {
                   <>
                     <div className="inline-block animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-600 mb-2"></div>
                     <p className="text-lg text-gray-600">
-                      {isModelSwitching ? 'Switching models...' : 'Loading background removal model...'}
+                      {isModelSwitching ? t('switchingModel') : t('loading')}
                     </p>
                   </>
                 ) : error ? (
@@ -273,16 +287,14 @@ export default function App() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                     </svg>
                     <p className="text-lg text-gray-600">
-                      {isDragActive
-                        ? "Drop the images here..."
-                        : "Drag and drop images here"}
+                      {isDragActive ? t('dropzoneActive') : t('dropzoneTitle')}
                     </p>
-                    <p className="text-sm text-gray-500">or click to select files</p>
+                    <p className="text-sm text-gray-500">{t('dropzoneSubtitle')}</p>
                     <Alert className="text-left">
                       <CircleAlert className="h-4 w-4 stroke-gray-500" />
-                      <AlertTitle>Heads up!</AlertTitle>
+                      <AlertTitle>{t('alertTitle')}</AlertTitle>
                       <AlertDescription>
-                        All images are processed locally on your device and are not uploaded to any server.
+                        {t('alertDescription')}
                       </AlertDescription>
                     </Alert>
                   </>
@@ -292,7 +304,7 @@ export default function App() {
 
             {images.length === 0 && (
               <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="text-xl text-gray-700 font-semibold mb-4">No image? Try one of these:</h3>
+                <h3 className="text-xl text-gray-700 font-semibold mb-4">{t('sampleTitle')}</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {sampleImages.map((url, index) => (
                     <button
@@ -322,7 +334,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <h2 className="text-2xl font-bold mb-4">BGNix</h2>
           <p className="text-sm text-gray-500 mt-4">
-            Built with ❤️ by Jimmy using Transformers.js
+            {t('footer')}
           </p>
         </div>
       </footer>
