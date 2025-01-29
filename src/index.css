@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-checkered {
+  background-image: linear-gradient(45deg, #808080 25%, transparent 25%),
+    linear-gradient(-45deg, #808080 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #808080 75%),
+    linear-gradient(-45deg, transparent 75%, #808080 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  background-color: #fff;
+}
+
+.mask {
+  mask-image: linear-gradient(to right, black 0%, black 100%);
+  mask-size: 100%;
+  mask-repeat: no-repeat;
+  transition: mask-size 0.2s;
+  transition-delay: 0.7s;
+}
+
+.mask:hover {
+  mask-size: 0%;
+  transition-delay: 0s;
+}
+
+.mask.processing {
+  mask-size: 0%;
+  transition-delay: 0s;
+  border: 2px solid red;
+}
+
+body {
+  background: linear-gradient(135deg, #5200ae, #4062bb);
+}
+
+/* Slider styles */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #808080;
+  height: 4px;
+  border-radius: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+
+/* Color picker styles */
+input[type="color"] {
+  -webkit-appearance: none;
+  /* border: none; */
+  padding: 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+}
+
+/* Image container styles */
+.grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
