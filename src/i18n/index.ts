@@ -58,7 +58,7 @@ const resources = {
       sampleTitle: '没有图片？试试这些：',
       loading: '正在加载背景移除模型...',
       switchingModel: '正在切换模型...',
-      footer: '由 <a>Jimmy</a> 用 Transformers.js 充满爱心地构建',
+      footer: '由 <a>Jimmy</a> 用 Transformers.js 构建',
       model: '模型：',
       faqTitle: '常见问题',
       faqQuestion1: '1. BGNix 是如何工作的？为什么它是免费且保护隐私的？',
