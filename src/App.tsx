@@ -8,6 +8,8 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Faq } from "./components/Faq";
 import { useTranslation } from 'react-i18next';
 import './i18n';
+import { LanguageSelector } from "./components/LanguageSelector";
+import { CompareSlider } from "./components/CompareSlider";
 
 interface AppError {
   message: string;
@@ -21,10 +23,10 @@ export interface ImageFile {
 
 // Sample images from Unsplash
 const sampleImages = [
-  "https://images.unsplash.com/photo-1601233749202-95d04d5b3c00?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3",
-  "https://images.unsplash.com/photo-1513013156887-d2bf241c8c82?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3",
-  "https://images.unsplash.com/photo-1643490745745-e8ca9a3a1c90?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3",
-  "https://images.unsplash.com/photo-1574158622682-e40e69881006?q=80&w=2333&auto=format&fit=crop&ixlib=rb-4.0.3"
+  "https://images.unsplash.com/photo-1561037404-61cd46aa615b?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3",
+  "https://plus.unsplash.com/premium_photo-1689551670902-19b441a6afde?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3",
+  "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.0.3",
+  "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2972&auto=format&fit=crop&ixlib=rb-4.0.3"
 ];
 
 // Check if the user is on mobile Safari
@@ -169,53 +171,33 @@ export default function App() {
     },
   });
 
-  const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    i18n.changeLanguage(event.target.value);
-  };
-
   return (
     <div className="min-h-screen bg-gray-50" onPaste={handlePaste}>
-      <nav className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-gray-800">
-              {t('title')}
-            </h1>
-            <select
-              value={i18n.language}
-              onChange={handleLanguageChange}
-              className="bg-white border border-gray-300 rounded-md px-3 py-1 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-            >
-              <option value="en">🇺🇸 English</option>
-              <option value="zh">🇨🇳 中文</option>
-              <option value="ja">🇯🇵 日本語</option>
-            </select>
+      <nav className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
+        <div className="w-full bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+            <div className="flex items-center justify-between">
+              <h1 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
+                <img src="/favicon-512.png" alt="BGNix Logo" className="w-12 h-12" />
+                {t('title')}
+              </h1>
+              <LanguageSelector />
+            </div>
+            {isIOS && (
+              <p className="text-sm text-gray-500 mt-2">
+                {t('subtitle')}
+              </p>
+            )}
           </div>
-          {isIOS && (
-            <p className="text-sm text-gray-500 mt-2">
-              {t('subtitle')}
-            </p>
-          )}
         </div>
       </nav>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mt-12">
         <div className={`grid ${images.length === 0 ? 'grid-cols-2 gap-8' : 'grid-cols-1'}`}>
           {images.length === 0 && (
             <div className="flex flex-col justify-top items-start">
               <div className="mb-4 w-full">
-                <ReactCompareSlider
-                  itemOne={<ReactCompareSliderImage src="/hero.png" alt="Image one" />}
-                  itemTwo={<ReactCompareSliderImage src="/hero-bg-removed.png" alt="Image two" style={{ filter: 'saturate(1.25) contrast(1.1)' }} />}
-                  className='rounded-md'
-                  style={{
-                    backgroundColor: 'white',
-                    backgroundImage: 'linear-gradient(45deg, #ccc 25%, transparent 25%), linear-gradient(-45deg, #ccc 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ccc 75%), linear-gradient(-45deg, transparent 75%, #ccc 75%)',
-                    backgroundPosition: '0 0, 0 10px, 10px -10px, -10px 0px',
-                    backgroundSize: '20px 20px',
-                    width: '100%'
-                  }}
-                />
+                <CompareSlider />
               </div>
               <p className="text-lg text-gray-600 mb-4">
                 {t('description')}
@@ -334,7 +316,12 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <h2 className="text-2xl font-bold mb-4">BGNix</h2>
           <p className="text-sm text-gray-500 mt-4">
-            {t('footer')}
+            <div dangerouslySetInnerHTML={{
+              __html: t('footer').replace(
+                '<a>',
+                '<a href="https://x.com/hellojimmywong" target="_blank" class="text-blue-500">'
+              )
+            }} />
           </p>
         </div>
       </footer>

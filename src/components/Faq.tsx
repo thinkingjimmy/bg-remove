@@ -42,6 +42,24 @@ export const Faq = () => {
             </ol>
           </AccordionContent>
         </AccordionItem>
+        <AccordionItem value="item-3">
+          <AccordionTrigger>{t('faqQuestion3')}</AccordionTrigger>
+          <AccordionContent>
+            {t('faqAnswer3')}
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="item-4">
+          <AccordionTrigger>{t('faqQuestion4')}</AccordionTrigger>
+          <AccordionContent>
+            {t('faqAnswer4')}
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="item-5">
+          <AccordionTrigger>{t('faqQuestion5')}</AccordionTrigger>
+          <AccordionContent>
+            {t('faqAnswer5')}
+          </AccordionContent>
+        </AccordionItem>
       </Accordion>
     </div>
   );

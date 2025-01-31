@@ -105,7 +105,7 @@ function ImageSpot({ image, onDelete }: ImageSpotProps) {
               </svg>
               <span className="text-sm text-gray-700">Delete</span>
             </button>
-            <button
+            {/* <button
               onClick={() => setIsEditModalOpen(true)}
               className="flex items-center gap-1 px-3 py-1.5 bg-white border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
               title="Edit"
@@ -114,7 +114,7 @@ function ImageSpot({ image, onDelete }: ImageSpotProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
               </svg>
               <span className="text-sm text-gray-700">Edit</span>
-            </button>
+            </button> */}
             <a
               href={processedImageUrl || processedURL}
               download={`processed-${image.id}.png`}
