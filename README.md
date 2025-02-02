@@ -8,7 +8,11 @@ BGNix is a free, privacy-first AI tool that removes backgrounds instantly – no
 - 🏃‍♂️ Local processing - no server uploads needed
 - 🔒 Privacy-focused - all processing happens in your browser
 - ⚡ Optional WebGPU acceleration for supported browsers
-- 🌍 Support 
+- 🌍 Support English, Japanese, Chinese
+
+## Todo
+
+- [ ] Support RMBG-2.0 model
 
 ## Technical Implementation
 

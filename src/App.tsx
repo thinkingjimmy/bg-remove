@@ -10,6 +10,8 @@ import { useTranslation } from 'react-i18next';
 import './i18n';
 import { LanguageSelector } from "./components/LanguageSelector";
 import { CompareSlider } from "./components/CompareSlider";
+import { Footer } from "./components/Footer";
+import { Navbar } from "./components/Navbar";
 
 interface AppError {
   message: string;
@@ -49,10 +51,6 @@ export default function App() {
   const [images, setImages] = useState<ImageFile[]>([]);
 
   useEffect(() => {
-    if (isMobileSafari()) {
-      window.location.href = 'https://bg-mobile.addy.ie';
-      return;
-    }
 
     // Only check iOS on load since that won't change
     const { isIOS: isIOSDevice } = getModelInfo();
@@ -173,24 +171,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-50" onPaste={handlePaste}>
-      <nav className="bg-white shadow-sm fixed top-0 left-0 right-0 z-50">
-        <div className="w-full bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
-            <div className="flex items-center justify-between">
-              <h1 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
-                <img src="/favicon-512.png" alt="BGNix Logo" className="w-12 h-12" />
-                {t('title')}
-              </h1>
-              <LanguageSelector />
-            </div>
-            {isIOS && (
-              <p className="text-sm text-gray-500 mt-2">
-                {t('subtitle')}
-              </p>
-            )}
-          </div>
-        </div>
-      </nav>
+      <Navbar isIOS={isIOS} />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mt-12">
         <div className={`grid ${images.length === 0 ? 'grid-cols-2 gap-8' : 'grid-cols-1'}`}>
@@ -312,19 +293,7 @@ export default function App() {
 
       <Faq />
       
-      <footer className="border-t border-gray-200 pb-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <h2 className="text-2xl font-bold mb-4">BGNix</h2>
-          <p className="text-sm text-gray-500 mt-4">
-            <div dangerouslySetInnerHTML={{
-              __html: t('footer').replace(
-                '<a>',
-                '<a href="https://x.com/hellojimmywong" target="_blank" class="text-blue-500">'
-              )
-            }} />
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

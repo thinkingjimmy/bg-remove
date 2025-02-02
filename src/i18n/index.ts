@@ -5,8 +5,8 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 const resources = {
   en: {
     translation: {
-      title: 'BGNix - 100% Free & Privacy Preserved',
-      subtitle: 'Using optimized iOS background removal',
+      title: 'BGNix',
+      subtitle: '100% Free & Privacy Image Background Removal',
       description: 'The free, privacy-first AI tool that removes backgrounds instantly – no subscriptions, no uploads to any server. 100% Local Processing.',
       subDescription: 'Perfect for professional photos, product images, and more.',
       dropzoneTitle: 'Drag and drop images here',
@@ -34,6 +34,13 @@ const resources = {
         step2: 'Wait for the model to load.',
         step3: 'Download the new image with transparent background.',
       },
+      faqQuestion6: '6. Are there any limitations?',
+      faqAnswer6: {
+        answer1: 'Maximum file size: 10MB per image',
+        answer2: 'Processing time varies based on image size and complexity',
+        answer3: 'Requires modern browser with WebAssembly support',
+        answer4: 'Internet connection needed for first - time model download',
+      },
       faqTips: {
         tip1: 'Use images with solid color or simple backgrounds',
         tip2: 'Use images where there\'s high contrast between foreground and background',
@@ -45,7 +52,8 @@ const resources = {
         product: 'Product',
         car: 'Car'
       },
-      compareSlider: 'The pictures of the different subjects all worked out well'
+      compareSlider: 'The pictures of the different subjects all worked out well',
+      support_project: 'Support this project'
     }
   },
   zh: {
@@ -79,6 +87,13 @@ const resources = {
         step2: '等待模型加载。',
         step3: '下载带有透明背景的新图片。',
       },
+      faqQuestion6: '6. BGNix 有什么限制吗？',
+      faqAnswer6: {
+        answer1: '最大文件大小：10MB/图片',
+        answer2: '处理时间取决于图片大小和复杂性',
+        answer3: '需要现代浏览器支持WebAssembly',
+        answer4: '首次下载模型需要互联网连接',
+      },
       faqTips: {
         tip1: '使用纯色或简单背景的图片',
         tip2: '使用前景和背景对比度高的图片',
@@ -89,7 +104,8 @@ const resources = {
         animal: '动物',
         product: '产品',
         car: '汽车'
-      }
+      },
+      support_project: '支持本项目'
     }
   },
   ja: {
@@ -123,6 +139,13 @@ const resources = {
         step2: 'モデルが読み込まれるのを待ちます。',
         step3: '背景が削除された新しい画像をダウンロードします。',
       },
+      faqQuestion6: '6. 制限はありますか？',
+      faqAnswer6: {
+        answer1: '最大ファイルサイズ：10MB/画像',
+        answer2: '処理時間は画像サイズと複雑性によって異なります',
+        answer3: 'WebAssembly をサポートする現代のブラウザが必要です',
+        answer4: '初回モデルダウンロードにはインターネット接続が必要です',
+      },
       faqTips: {
         tip1: '単色または単純な背景の画像を使用する',
         tip2: '前景と背景のコントラストが高い画像を使用する',
@@ -133,7 +156,8 @@ const resources = {
         animal: '動物',
         product: '製品',
         car: '車'
-      }
+      },
+      support_project: '本プロジェクトを支持する'
     }
   }
 };
