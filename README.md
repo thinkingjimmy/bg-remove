@@ -1,4 +1,6 @@
-# BGNix - 100% Free & Privacy Preserved
+# BGNix - 100% Free & Privacy Image Background Removal
+
+![og-1738509722567 (1)](https://github.com/user-attachments/assets/e704a58f-083f-446a-bedf-edf2c67f22cb)
 
 BGNix is a free, privacy-first AI tool that removes backgrounds instantly – no subscriptions, no uploads to any server. 100% Local Processing.
 
@@ -9,6 +11,7 @@ BGNix is a free, privacy-first AI tool that removes backgrounds instantly – no
 - 🔒 Privacy-focused - all processing happens in your browser
 - ⚡ Optional WebGPU acceleration for supported browsers
 - 🌍 Support English, Japanese, Chinese
+- 📱 Support iOS, Android, and Web
 
 ## Todo
 
