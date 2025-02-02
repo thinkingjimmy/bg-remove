@@ -140,8 +140,16 @@ export async function initializeModel(forceModelId?: string): Promise<boolean> {
     }
     
     state.model = await AutoModel.from_pretrained(FALLBACK_MODEL_ID, {
-      progress_callback: (progress) => {
-        console.log(`Loading model: ${Math.round(progress * 100)}%`);
+      progress_callback: (progress: any) => {
+        if (typeof progress === 'object' && progress !== null) {
+          const loaded = progress.loaded || 0;
+          const total = progress.total || 1;
+          const percentage = Math.round((loaded / total) * 100);
+          console.log(`Loading model: ${percentage}%`);
+        } else if (typeof progress === 'number') {
+          const percentage = Number.isFinite(progress) ? Math.round(progress * 100) : 0;
+          console.log(`Loading model: ${percentage}%`);
+        }
       }
     });
     
