@@ -57,7 +57,11 @@ export const Faq = () => {
         <AccordionItem value="item-5">
           <AccordionTrigger>{t('faqQuestion5')}</AccordionTrigger>
           <AccordionContent>
-            {t('faqAnswer5')}
+            <ol className="list-decimal pl-6 space-y-2 mt-2">
+              <li>{t('faqAnswer5.step1')}</li>
+              <li>{t('faqAnswer5.step2')}</li>
+              <li>{t('faqAnswer5.step3')}</li>
+            </ol>
           </AccordionContent>
         </AccordionItem>
       </Accordion>

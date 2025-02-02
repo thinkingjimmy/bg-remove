@@ -1,15 +1,14 @@
-# Image Background Remover in the browser 
+# BGNix - 100% Free & Privacy Preserved
 
-A powerful React + Vite application that removes backgrounds from images directly in your browser. This app leverages machine learning models through Transformers.js to process media locally, ensuring your files never leave your device.
+BGNix is a free, privacy-first AI tool that removes backgrounds instantly – no subscriptions, no uploads to any server. 100% Local Processing.
 
 ## Features
 
 - 🎯 One-click background removal for images
-- 🎨 Custom background color and image selection
-- 💾 Download options for both transparent and colored backgrounds
 - 🏃‍♂️ Local processing - no server uploads needed
 - 🔒 Privacy-focused - all processing happens in your browser
 - ⚡ Optional WebGPU acceleration for supported browsers
+- 🌍 Support 
 
 ## Technical Implementation
 
@@ -41,7 +40,7 @@ Both implementations use Transformers.js to run the machine learning models dire
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/addyosmani/bg-remove.git
+git clone https://github.com/thinkingjimmy/bg-remove.git
 ```
 
 2. Install dependencies:
@@ -66,11 +65,11 @@ npm run dev
 - RMBG-1.4 as the default cross-browser model
 - Optional WebGPU acceleration with MODNet
 - IndexedDB (via Dexie.js) for local file management
-- TailwindCSS for styling
+- TailwindCSS and shadcn/ui for styling
 
 ## Credits
 
-Based on the [WebGPU background removal demo](https://github.com/huggingface/transformers.js-examples/tree/main/remove-background-webgpu) by [@xenova](https://github.com/xenova)
+- Based on the [bg-remove](https://github.com/addyosmani/bg-remove) by [@addyosmani](https://github.com/addyosmani)
 
 ## License
 

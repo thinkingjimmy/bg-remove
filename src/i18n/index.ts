@@ -29,7 +29,11 @@ const resources = {
       faqQuestion4: '4. How do I make a background transparent?',
       faqAnswer4: 'Removing the background from your photo will automatically make the background transparent. Your new image will download as a PNG file, which supports transparency, so you can place your newly edited image on any background you like.',
       faqQuestion5: '5. How to use BGNix?',
-      faqAnswer5: '1. Drag and drop your image into the dropzone or click to select files. 2. Wait for the model to load. 3. Download the new image with transparent background.',
+      faqAnswer5: {
+        step1: 'Drag and drop your image into the dropzone or click to select files.',
+        step2: 'Wait for the model to load.',
+        step3: 'Download the new image with transparent background.',
+      },
       faqTips: {
         tip1: 'Use images with solid color or simple backgrounds',
         tip2: 'Use images where there\'s high contrast between foreground and background',
@@ -70,7 +74,11 @@ const resources = {
       faqQuestion4: '4. 如何使背景透明？',
       faqAnswer4: '移除照片背景后，背景会自动变为透明。你的新图片将以支持透明的 PNG 文件下载，因此你可以将新编辑的图片放在任何你喜欢的背景上。',
       faqQuestion5: '5. 如何使用 BGNix？',
-      faqAnswer5: '1. 拖拽图片到拖放区或点击选择文件。2. 等待模型加载。3. 下载带有透明背景的新图片。',
+      faqAnswer5: {
+        step1: '拖拽图片到拖放区或点击选择文件。',
+        step2: '等待模型加载。',
+        step3: '下载带有透明背景的新图片。',
+      },
       faqTips: {
         tip1: '使用纯色或简单背景的图片',
         tip2: '使用前景和背景对比度高的图片',
@@ -109,8 +117,12 @@ const resources = {
       faqAnswer3: 'JPEG, PNG 形式の画像をサポートしています。',
       faqQuestion4: '4. 背景を透明にするにはどうすればいいですか？',
       faqAnswer4: '背景を削除した後、背景は自動的に透明になります。新しい画像は PNG ファイルとしてダウンロードされ、透明性をサポートしているため、あなたが好きな背景に新しく編集した画像を配置できます。',
-      faqQuestion5: '5. 背景を削除するにはどうすればいいですか？',
-      faqAnswer5: '1. 画像をドラッグ＆ドロップするか、クリックしてファイルを選択します。2. モデルが読み込まれるのを待ちます。3. 背景が削除された新しい画像をダウンロードします。',
+      faqQuestion5: '5. BGNix の使用方法',
+      faqAnswer5: {
+        step1: '画像をドラッグ＆ドロップするか、クリックしてファイルを選択します。',
+        step2: 'モデルが読み込まれるのを待ちます。',
+        step3: '背景が削除された新しい画像をダウンロードします。',
+      },
       faqTips: {
         tip1: '単色または単純な背景の画像を使用する',
         tip2: '前景と背景のコントラストが高い画像を使用する',
