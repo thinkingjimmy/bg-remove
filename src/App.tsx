@@ -173,17 +173,17 @@ export default function App() {
     <div className="min-h-screen bg-gray-50" onPaste={handlePaste}>
       <Navbar isIOS={isIOS} />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 mt-12">
-        <div className={`grid ${images.length === 0 ? 'grid-cols-2 gap-8' : 'grid-cols-1'}`}>
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8 mt-12">
+        <div className={`grid ${images.length === 0 ? 'grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8' : 'grid-cols-1'}`}>
           {images.length === 0 && (
             <div className="flex flex-col justify-top items-start">
               <div className="mb-4 w-full">
                 <CompareSlider />
               </div>
-              <p className="text-lg text-gray-600 mb-4">
+              <p className="text-base sm:text-lg text-gray-600 mb-4">
                 {t('description')}
               </p>
-              <p className="text-gray-500">
+              <p className="text-sm sm:text-base text-gray-500">
                 {t('subDescription')}
               </p>
             </div>
@@ -192,12 +192,12 @@ export default function App() {
           <div className={images.length === 0 ? '' : 'w-full'}>
             <div className="mb-4">
               {!isIOS && (
-                <div className="flex items-center gap-4">
-                  <span className="text-gray-600">{t('model')}</span>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4">
+                  <span className="text-sm sm:text-base text-gray-600">{t('model')}</span>
                   <select
                     value={currentModel}
                     onChange={handleModelChange}
-                    className="bg-white border border-gray-300 rounded-md px-3 py-1 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    className="w-full sm:w-auto bg-white border border-gray-300 rounded-md px-3 py-1.5 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                     disabled={!isWebGPU}
                   >
                     <option value="briaai/RMBG-1.4">RMBG-1.4 (Cross-browser)</option>
@@ -210,7 +210,7 @@ export default function App() {
             </div>
             <div
               {...getRootProps()}
-              className={`p-6 mb-8 border-2 border-dashed rounded-lg text-center cursor-pointer transition-colors duration-300 ease-in-out bg-white
+              className={`p-4 sm:p-6 mb-4 sm:mb-8 border-2 border-dashed rounded-lg text-center cursor-pointer transition-colors duration-300 ease-in-out bg-white
                 ${isDragAccept ? "border-green-500 bg-green-50" : ""}
                 ${isDragReject ? "border-red-500 bg-red-50" : ""}
                 ${isDragActive ? "border-blue-500 bg-blue-50" : "border-gray-300 hover:border-blue-500 hover:bg-blue-50"}
@@ -266,9 +266,9 @@ export default function App() {
             </div>
 
             {images.length === 0 && (
-              <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="text-xl text-gray-700 font-semibold mb-4">{t('sampleTitle')}</h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="bg-white rounded-lg p-4 sm:p-6 shadow-sm">
+                <h3 className="text-lg sm:text-xl text-gray-700 font-semibold mb-3 sm:mb-4">{t('sampleTitle')}</h3>
+                <div className="grid grid-cols-2 gap-2 md:grid-cols-4 sm:gap-4">
                   {sampleImages.map((url, index) => (
                     <button
                       key={index}
@@ -279,6 +279,7 @@ export default function App() {
                         src={url}
                         alt={`Sample ${index + 1}`}
                         className="w-full h-full object-cover"
+                        loading="lazy"
                       />
                     </button>
                   ))}
